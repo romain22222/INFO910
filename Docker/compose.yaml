@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  flask:
+    image: romain22222/info910_flask
+    build:             
+      context: flask
+      dockerfile: Dockerfile
+    container_name: info910_flask
+    environment:
+      - APP_NAME=ChatsHTTP
+    expose:
+      - 8080
+      
+  nginx:
+    image: romain22222/info910_nginx
+    build:             
+      context: nginx
+      dockerfile: Dockerfile
+    container_name: info910_nginx
+    ports:
+      - "80:80"
